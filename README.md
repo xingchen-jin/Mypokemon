@@ -1,55 +1,96 @@
-# Zust_CS_Java Course Design
-##  Designed by JinJiaWei , CS241, 1240696034
+# Jade-Journey / 宝石之旅
+Designed by JinJiaWei , ZUST_CS241, 12406960344
 
+简介 / Overview
+----------------
+- 中文：独立完成的大学课程设计，在三周内复刻了《宝可梦 绿宝石》核心体验，涵盖输入、实时渲染、碰撞、资源管理与回合制战斗；架构清晰、模块化，便于学习与扩展。
+- English: A three-week university course project recreating the core experience of Pokémon Emerald. Covers input, rendering, collision, resource management, and turn-based battles with a clear, modular architecture for learning and extension.
 
+核心亮点 / Highlights
+---------------------
+- 约 4,300+ 行 Java 代码，单线程游戏循环，键盘全局驱动。
+- 自研 2D 像素管线：瓦片地图、精灵动画、基础碰撞、对话/菜单 UI。
+- 回合制战斗框架：技能、属性数据、基础伤害流程与状态管理。
+- 资源加载与分层：地图/角色/精灵素材、音频与字体分目录管理。
 
+架构与模块 / Architecture & Modules
+-----------------------------------
+- 游戏主循环与场景： [src/main/GamePanel.java](src/main/GamePanel.java), [src/main/Main.java](src/main/Main.java)
+- 输入与事件： [src/main/KeyHandler.java](src/main/KeyHandler.java), [src/main/EventHandler.java](src/main/EventHandler.java)
+- 瓦片与碰撞： [src/tile/TileManger.java](src/tile/TileManger.java), [src/main/CollisionChecker.java](src/main/CollisionChecker.java)
+- 实体与角色： [src/entity/Player.java](src/entity/Player.java), [src/entity/Entity.java](src/entity/Entity.java)
+- 战斗系统： [src/battle/BattleManger.java](src/battle/BattleManger.java), [src/battle/BattleSystem.java](src/battle/BattleSystem.java), [src/move](src/move)
+- 精灵数据： [src/pokemon/Pokemon.java](src/pokemon/Pokemon.java) 及子类 (Mudkip, Torchic, Treecko, Ralts, Poochyena)
+- 道具与背包： [src/item](src/item), [src/inventory/PokemonParty.java](src/inventory/PokemonParty.java)
+- 资源与工具： [src/utils/UtilityTool.java](src/utils/UtilityTool.java), [res](res)（地图、角色、音频、字体等）
 
-## Getting Started
+状态 / Status
+-------------
+- 中文：可运行的教学/同人原型，欢迎继续迭代与二次开发。
+- English: Playable teaching/fan-made prototype; open to further iteration and extensions.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+操作 / Controls
+---------------
+- W / A / S / D：控制角色与菜单指针
+- ENTER：确认、交互、播放钓鱼动画
+- I：切换调试模式
+- ESC：返回或打开菜单
 
-#### Folder Structure
+快速开始 / Getting Started
+--------------------------
+- 依赖 / Prerequisites: JDK 8+ 建议 / JDK 8+ recommended.
+- 构建与运行（示例）/ Build & Run (example):
 
-The workspace contains two folders by default, where:
+```powershell
+# 编译示例：按需调整源路径与包名
+javac -encoding UTF-8 -d bin -cp src src/main/Main.java
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+# 运行示例：若主类包名为 main 则如下
+java -cp bin main.Main
+```
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+功能 / Features
+---------------
+- 2D 像素回合制框架：单线程游戏循环，输入驱动的状态切换。
+- 地图与碰撞：瓦片地图、碰撞体积、事件矩形（对话、交互触发）。
+- 战斗与技能：基础回合制流程、技能数据类、属性与伤害计算骨架。
+- 背包与道具：精灵队伍管理、基础道具定义与获取。
+- UI 与资源：文本窗口、菜单、音频播放、精灵/角色/地图素材加载。
+- 可扩展性：易于添加新地图、技能、道具、精灵与 UI 界面。
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+系统摘要 / Systems
+------------------
+- 战斗：管理战斗状态、技能释放、HP 结算与基础效果呈现。
+- 移动与交互：按键驱动角色移动，事件矩形触发对话/交互逻辑。
+- 资源加载：分目录管理地图 CSV、精灵帧、音频与字体，启动时按需加载。
+- UI/UX：文本窗口、菜单导航、战斗界面与提示层。
+- 调试支持：`I` 切换调试模式，便于查看坐标与碰撞。
 
-#### Dependency Management
+目录结构（示例）/ Project Structure (example)
+-------------------------------------------
+- `src/`：按模块组织（main, battle, pokemon, item 等）
+- `res/`：图片、音频、地图等资源
+- `bin/`：编译输出
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-Project Overview
-This project is a complete university course assignment that covers key aspects of game development: input handling, rendering, collision detection, resource management, and battle logic. It features a clear structure and is designed for easy expansion.
+许可 / License
+---------------
+- 中文：本项目代码以 MIT 许可证发布，详见 [LICENSE](LICENSE)。
+- English: Code is released under the MIT License. See [LICENSE](LICENSE).
 
-## Project Overview
-This project is a complete university course assignment that covers key aspects of game development: input handling, rendering, collision detection, resource management, and battle logic. It features a clear structure and is designed for easy expansion.
+版权声明（美术资源）/ Artwork Copyright
+--------------------------------------
+- 中文：美术资源的版权与商标权归属任天堂（Nintendo）、宝可梦公司（The Pokémon Company）、柚子社（Yuzusoft，柚子社）或其他商业游戏公司。素材仅用于学习、研究与非商业展示，不构成再分发或商业授权；如权利方要求，将及时移除相关资源或链接。
+- English: Artwork assets remain the intellectual property and trademarks of Nintendo, The Pokémon Company, Yuzusoft, or other commercial game companies. Assets are used solely for learning/research/non-commercial demonstration and do not grant redistribution or commercial rights; upon request by rights holders, related assets or links will be removed promptly.
 
-The project is a Java-based remake of the third generation of the globally renowned Pokémon game series. It is a 2D pixel-style turn-based game that employs common 2D game design elements such as tilemaps and sprites. The entire game is controlled via keyboard inputs and runs within a single thread.
+无关与免责声明 / Non-Affiliation & Disclaimer
+-------------------------------------------
+- 中文：Jade-Journey 为独立、非商业的学习/同人项目，与任天堂、宝可梦公司、Game Freak、Creatures Inc.、柚子社或任何其他商业游戏公司及其关联方无隶属、合作、授权或背书关系。
+- English: Jade-Journey is an independent, non-commercial learning/fan-made project and is not affiliated with, endorsed by, or sponsored by Nintendo, The Pokémon Company, Game Freak, Creatures Inc., Yuzusoft, or any other commercial game companies or their affiliates.
 
-## Controls Guide
-W, A, S, D – Control character direction and menu cursor
-
-ENTER – Confirm selection, interact, play fishing animation
-
-I – Toggle debug mode
-
-ESC – Go back / open menu
-
-## 项目简介
-该项目为一份完整的大学课程设计，覆盖游戏开发主要环节：输入、渲染、碰撞、资源管理与战斗逻辑。结构清晰，易于扩展。本项目主题是全世界知名IP宝可梦游戏的第三世代在JAVA上的复刻，是一款2d像素回合制游戏。采用瓦片地图和精灵图等常见2d游戏设计。全游戏通过键盘控制，游戏在一个单线程中完成。
-
-## 操作指南
-W，A，S，D-	   	    控制角色方向及菜单指针
-
-ENTER-	     	    按键确认，交互，播放钓鱼精灵图
-
-I-	  			    调试模式
-
-ESC-				返回键及切出菜单
+致谢 / Acknowledgements
+----------------------
+- 中文：感谢开源社区、玩家与开发者的反馈和工具支持。
+- English: Thanks to the open-source community, players, and developers for resources, tools, and feedback.
 
 
 
