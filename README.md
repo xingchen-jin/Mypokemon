@@ -6,6 +6,10 @@ Designed by JinJiaWei , ZUST_CS241, 12406960344
 - 中文：独立完成的大学课程设计，在三周内复刻了《宝可梦 绿宝石》核心体验，涵盖输入、实时渲染、碰撞、资源管理与回合制战斗；架构清晰、模块化，便于学习与扩展。
 - English: A three-week university course project recreating the core experience of Pokémon Emerald. Covers input, rendering, collision, resource management, and turn-based battles with a clear, modular architecture for learning and extension.
 
+演示视频
+----------------
+https://www.bilibili.com/video/BV1V86qBfEfg/?spm_id_from=333.1391.0.0&vd_source=fcf8e0f8c59df434febbca91576861fd
+
 核心亮点 / Highlights
 ---------------------
 - 中文：
